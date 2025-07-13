@@ -1,8 +1,5 @@
 import os
 import random
-import numpy as np
-from termcolor import colored
-import time
 
 cube = [
     [['Y', 'Y', 'Y'],
@@ -26,25 +23,46 @@ cube = [
     ]
 moves = ["R", "R2", "L", "L2", "U", "U2", "D", "D2", "F", "F2", "B", "B2"]
 
+class bcolors:
+    WHITE = '\033[47m'
+    BLUE = '\033[104m'
+    ORANGE = '\033[43m'
+    GREEN = '\033[102m'
+    YELLOW = '\033[103m'
+    RED = '\033[41m'
+    ENDC = '\033[0m'
+
+def color_check(iterator):
+    if iterator == 'Y': color = bcolors.YELLOW
+    elif iterator == 'B': color = bcolors.BLUE
+    elif iterator == 'R': color = bcolors.RED
+    elif iterator == 'G': color = bcolors.GREEN
+    elif iterator == 'O': color = bcolors.ORANGE
+    elif iterator == 'W': color = bcolors.WHITE
+    return color
+
 def print_cube():
     os.system("clear")
     for i in cube[0]:
-        print("        ", end="")
+        print("     ", end="")
         for j in i:
-            print(j, end=" ")
+            text = color_check(j)
+            print(text + j + bcolors.ENDC, end="")
         print()
     print()
     for j in range(3):
         for i in range(4):
             print(" ", end="")
             for k in range(3):
-                print(cube[1+i][j][k], end=' ')
+                text = color_check(cube[1+i][j][k])
+                print(text + cube[1+i][j][k] + bcolors.ENDC, end='')
         print()
     print()
     for i in cube[5]:
-        print("        ", end="")
+        print("     ", end="")
         for j in i:
-            print(j, end=" ")
+            text = color_check(j)
+            print(text + j + bcolors.ENDC, end="")
         print()
     print()
 
