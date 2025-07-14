@@ -1,5 +1,7 @@
 import os
 import random
+import copy
+import time
 
 cube = [
     [['Y', 'Y', 'Y'],
@@ -21,7 +23,10 @@ cube = [
      ['W', 'W', 'W'],
      ['W', 'W', 'W']],
     ]
+
+cube_solved = copy.deepcopy(cube)
 moves = ["R", "R2", "L", "L2", "U", "U2", "D", "D2", "F", "F2", "B", "B2"]
+scramble_list = ["None so far"]
 
 class bcolors:
     WHITE = '\033[47m'
@@ -71,27 +76,20 @@ def print_help():
     print("It's also possible to do multiple turns within a single input by separating the moves by spaces")
     print("Like so: `R U R' U'`")
     print("To scramble the cube type in `scramble`")
+    print("To show the scramble moves type in `show_scramble`")
     input("Press enter to continue: ")
 
 def clockwise_movement(face):
     # edge movement
-    cube[face][0][1], cube[face][1][2] = cube[face][1][2], cube[face][0][1]
-    cube[face][0][1], cube[face][2][1] = cube[face][2][1], cube[face][0][1]
-    cube[face][0][1], cube[face][1][0] = cube[face][1][0], cube[face][0][1]
+    cube[face][0][1], cube[face][1][2], cube[face][2][1], cube[face][1][0] = cube[face][1][0], cube[face][0][1], cube[face][1][2], cube[face][2][1]
     # corner movement
-    cube[face][0][2], cube[face][2][2] = cube[face][2][2], cube[face][0][2]
-    cube[face][0][2], cube[face][2][0] = cube[face][2][0], cube[face][0][2]
-    cube[face][0][2], cube[face][0][0] = cube[face][0][0], cube[face][0][2]
+    cube[face][0][0], cube[face][0][2], cube[face][2][2], cube[face][2][0] = cube[face][2][0], cube[face][0][0], cube[face][0][2], cube[face][2][2]
 
 def counterclockwise_movement(face):
     # edge movement
-    cube[face][0][1], cube[face][1][2] = cube[face][1][2], cube[face][0][1]
-    cube[face][1][2], cube[face][1][0] = cube[face][1][0], cube[face][1][2]
-    cube[face][1][2], cube[face][2][1] = cube[face][2][1], cube[face][1][2]
+    cube[face][0][1], cube[face][1][2], cube[face][2][1], cube[face][1][0] = cube[face][1][2], cube[face][2][1], cube[face][1][0], cube[face][0][1]
     # corner movement
-    cube[face][0][0], cube[face][0][2] = cube[face][0][2], cube[face][0][0]
-    cube[face][0][2], cube[face][2][0] = cube[face][2][0], cube[face][0][2]
-    cube[face][0][2], cube[face][2][2] = cube[face][2][2], cube[face][0][2]
+    cube[face][0][0], cube[face][0][2], cube[face][2][2], cube[face][2][0] = cube[face][0][2], cube[face][2][2], cube[face][2][0], cube[face][0][0]
 
 def move_U():
     cube[1][0], cube[2][0], cube[3][0], cube[4][0] = cube[2][0], cube[3][0], cube[4][0], cube[1][0]
@@ -211,9 +209,10 @@ def move_y_prime():
 
 def scramble():
     scramble_algorithm = []
-    for i in range(30):
+    for i in range(40):
         scramble_algorithm.append(random.choice(moves))
     move_cube(scramble_algorithm)
+    return scramble_algorithm
 
 def move_cube(sheet):
     for move in sheet:
@@ -308,10 +307,18 @@ def move_cube(sheet):
         elif move == "y2":
             move_y()
             move_y()
+        # print_cube()
+        # time.sleep(0.2)
 
 while True:
     print_cube()
     move_list = input("Type in the move: ").split(" ")
-    if move_list[0] == "scramble": scramble()
+    if move_list[0] == "scramble": scramble_list = scramble()
+    elif move_list[0] == "show_scramble":
+        for i in scramble_list:
+            print(i, end=' ')
+        print()
+        input("Press enter to continue: ")
+    elif move_list[0] == "solve": cube = copy.deepcopy(cube_solved)
     elif move_list[0] == "help": print_help()
     else: move_cube(move_list)
