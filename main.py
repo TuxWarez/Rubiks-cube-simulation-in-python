@@ -2,7 +2,6 @@ import os
 import random
 import copy
 import time
-import tkinter as tk
 
 cube = [
     [['Y', 'Y', 'Y'],
