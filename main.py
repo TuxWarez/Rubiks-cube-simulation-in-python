@@ -2,6 +2,7 @@ import os
 import random
 import copy
 import time
+import tkinter as tk
 
 cube = [
     [['Y', 'Y', 'Y'],
@@ -77,6 +78,7 @@ def print_help():
     print("Like so: `R U R' U'`")
     print("To scramble the cube type in `scramble`")
     print("To show the scramble moves type in `show_scramble`")
+    print("To return cube to its original position type in `solve`")
     input("Press enter to continue: ")
 
 def clockwise_movement(face):
@@ -163,13 +165,11 @@ def move_S():
     cube[0][1][2], cube[3][2][1], cube[5][1][0], cube[1][0][1] = cube[1][0][1], cube[0][1][2], cube[3][2][1], cube[5][1][0]
     cube[0][1][1], cube[3][1][1], cube[5][1][1], cube[1][1][1] = cube[1][1][1], cube[0][1][1], cube[3][1][1], cube[5][1][1]
     cube[0][1][0], cube[3][0][1], cube[5][1][2], cube[1][2][1] = cube[1][2][1], cube[0][1][0], cube[3][0][1], cube[5][1][2]
-    clockwise_movement(2)
 
 def move_S_prime():
     cube[0][1][2], cube[3][2][1], cube[5][1][0], cube[1][0][1] = cube[3][2][1], cube[5][1][0], cube[1][0][1], cube[0][1][2]
     cube[0][1][1], cube[3][1][1], cube[5][1][1], cube[1][1][1] = cube[3][1][1], cube[5][1][1], cube[1][1][1], cube[0][1][1]
     cube[0][1][0], cube[3][0][1], cube[5][1][2], cube[1][2][1] = cube[3][0][1], cube[5][1][2], cube[1][2][1], cube[0][1][0]
-    counterclockwise_movement(2)
 
 def move_B():
     cube[0][0][2], cube[3][2][2], cube[5][2][0], cube[1][0][0] = cube[3][2][2], cube[5][2][0], cube[1][0][0], cube[0][0][2]
@@ -185,6 +185,10 @@ def move_B_prime():
 
 def move_x():
     cube[0], cube[2], cube[5], cube[4] = cube[2], cube[5], cube[4], cube[0]
+    clockwise_movement(0)
+    clockwise_movement(0)
+    clockwise_movement(4)
+    clockwise_movement(4)
     clockwise_movement(3)
     counterclockwise_movement(1)
 
