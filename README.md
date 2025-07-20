@@ -3,5 +3,6 @@
     Like so: `R U R' U'`
     To scramble the cube type in `scramble`
     To show the scramble moves type in `show_scramble`
+    To return cube to its original position type in `solve`
 
     Its also possible to get this text in the program by typing in `help`
