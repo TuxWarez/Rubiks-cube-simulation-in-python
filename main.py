@@ -1,7 +1,6 @@
 import os
 import random
 import copy
-import time
 
 cube = [
     [['Y', 'Y', 'Y'],
@@ -210,6 +209,24 @@ def move_y_prime():
     clockwise_movement(5)
     counterclockwise_movement(0)
 
+def move_z():
+    cube[0], cube[3], cube[5], cube[1] = cube[1], cube[0], cube[3], cube[5]
+    clockwise_movement(2)
+    counterclockwise_movement(4)
+    clockwise_movement(0)
+    clockwise_movement(3)
+    clockwise_movement(5)
+    clockwise_movement(1)
+
+def move_z_prime():
+    cube[0], cube[3], cube[5], cube[1] = cube[3], cube[5], cube[1], cube[0]
+    clockwise_movement(4)
+    counterclockwise_movement(2)
+    counterclockwise_movement(0)
+    counterclockwise_movement(3)
+    counterclockwise_movement(5)
+    counterclockwise_movement(1)
+
 def scramble():
     scramble_algorithm = []
     for i in range(40):
@@ -310,8 +327,11 @@ def move_cube(sheet):
         elif move == "y2":
             move_y()
             move_y()
-        # print_cube()
-        # time.sleep(0.2)
+        elif move == "z": move_z()
+        elif move == "z'": move_z_prime()
+        elif move == "z2":
+            move_z()
+            move_z()
 
 while True:
     print_cube()
