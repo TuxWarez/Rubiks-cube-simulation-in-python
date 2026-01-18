@@ -6,7 +6,9 @@
     To return cube to its original position type in `solve`
 
     Its also possible to get this text in the program by typing in `help`
-
-<img width="618" height="724" alt="image" src="https://github.com/user-attachments/assets/ec8f0762-0ffe-4abc-9d47-17c3a168ccc2" width="48" />
     
-<img width="307" height="362" alt="image" src="https://github.com/user-attachments/assets/13b9bd75-1bae-4490-a567-236e46f7fb7f" width="48" />
+<img width="307" height="360" alt="image" src="https://github.com/user-attachments/assets/74d10e11-7321-4433-bbac-90437f04dc8b" />
+
+    
+<img width="307" height="360" alt="image" src="https://github.com/user-attachments/assets/7e216146-408c-4f2a-b015-ea6f242284ca" />
+
