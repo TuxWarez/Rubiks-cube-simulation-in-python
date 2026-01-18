@@ -29,11 +29,11 @@ scramble_list = ["None so far"]
 
 class bcolors:
     WHITE = '\033[47m'
-    BLUE = '\033[104m'
-    ORANGE = '\033[43m'
-    GREEN = '\033[102m'
-    YELLOW = '\033[103m'
-    RED = '\033[41m'
+    BLUE = '\033[94;104m'
+    ORANGE = '\033[33;43m'
+    GREEN = '\033[92;102m'
+    YELLOW = '\033[93;103m'
+    RED = '\033[31;41m'
     ENDC = '\033[0m'
 
 def color_check(iterator):
