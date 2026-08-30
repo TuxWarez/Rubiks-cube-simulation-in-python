@@ -1,5 +1,5 @@
 import os
-import random
+import random, time
 import copy
 
 cube = [
@@ -28,7 +28,7 @@ moves = ["R", "R2", "L", "L2", "U", "U2", "D", "D2", "F", "F2", "B", "B2"]
 scramble_list = ["None so far"]
 
 class bcolors:
-    WHITE = '\033[47m'
+    WHITE = '\033[47;37m'
     BLUE = '\033[94;104m'
     ORANGE = '\033[33;43m'
     GREEN = '\033[92;102m'
@@ -332,6 +332,8 @@ def move_cube(sheet):
         elif move == "z2":
             move_z()
             move_z()
+        time.sleep(0.1)
+        print_cube()
 
 while True:
     print_cube()
