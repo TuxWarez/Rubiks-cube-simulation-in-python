@@ -234,116 +234,127 @@ def scramble():
     move_cube(scramble_algorithm)
     return scramble_algorithm
 
-def move_cube(sheet):
-    for move in sheet:
-        if move == "U": move_U()
-        elif move == "U'": move_U_prime()
-        elif move == "U2":
-            move_U()
-            move_U()
-        elif move == "E": move_E()
-        elif move == "E'": move_E_prime()
-        elif move == 'E2':
-            move_E()
-            move_E()
-        elif move == "D": move_D()
-        elif move == "D'": move_D_prime()
-        elif move == "D2":
-            move_D()
-            move_D()
-        elif move == "R": move_R()
-        elif move == "R'": move_R_prime()
-        elif move == "R2":
-            move_R()
-            move_R()
-        elif move == "M": move_M()
-        elif move == "M'": move_M_prime()
-        elif move == "M2":
-            move_M()
-            move_M()
-        elif move == "L": move_L()
-        elif move == "L'": move_L_prime()
-        elif move == "L2":
-            move_L()
-            move_L()
-        elif move == "F": move_F()
-        elif move == "F'": move_F_prime()
-        elif move == "F2":
-            move_F()
-            move_F()
-        elif move == "S": move_S()
-        elif move == "S'": move_S_prime()
-        elif move == "S2":
-            move_S()
-            move_S()
-        elif move == "B": move_B()
-        elif move == "B'": move_B_prime()
-        elif move == "B2":
-            move_B()
-            move_B()
-        elif move == "Uw" or move == "u":
-            move_U()
-            move_E_prime()
-        elif move == "Uw'" or move == "u'":
-            move_U_prime()
-            move_E()
-        elif move == "Dw" or move == "d":
-            move_D()
-            move_E()
-        elif move == "Dw'" or move == "d'":
-            move_D_prime()
-            move_E_prime()
-        elif move == "Lw" or move == "l":
-            move_L()
-            move_M()
-        elif move == "Lw'" or move == "l'":
-            move_L_prime()
-            move_M_prime()
-        elif move == "Rw" or move == "r":
-            move_R()
-            move_M_prime()
-        elif move == "Rw'" or move == "r'":
-            move_R_prime()
-            move_M()
-        elif move == "Fw" or move == "f":
-            move_F()
-            move_S()
-        elif move == "Fw'" or move == "f'":
-            move_F_prime()
-            move_S_prime()
-        elif move == "Bw" or move == "b":
-            move_B()
-            move_S_Prime()
-        elif move == "Bw'" or move == "b'":
-            move_B_prime()
-            move_S()
-        elif move == "x": move_x()
-        elif move == "x'": move_x_prime()
-        elif move == "x2":
-            move_x()
-            move_x()
-        elif move == "y": move_y()
-        elif move == "y'": move_y_prime()
-        elif move == "y2":
-            move_y()
-            move_y()
-        elif move == "z": move_z()
-        elif move == "z'": move_z_prime()
-        elif move == "z2":
-            move_z()
-            move_z()
-        time.sleep(0.1)
-        print_cube()
+def move_cube(move):
+    if move == "U": move_U()
+    elif move == "U'": move_U_prime()
+    elif move == "U2":
+        move_U()
+        move_U()
+    elif move == "E": move_E()
+    elif move == "E'": move_E_prime()
+    elif move == 'E2':
+        move_E()
+        move_E()
+    elif move == "D": move_D()
+    elif move == "D'": move_D_prime()
+    elif move == "D2":
+        move_D()
+        move_D()
+    elif move == "R": move_R()
+    elif move == "R'": move_R_prime()
+    elif move == "R2":
+        move_R()
+        move_R()
+    elif move == "M": move_M()
+    elif move == "M'": move_M_prime()
+    elif move == "M2":
+        move_M()
+        move_M()
+    elif move == "L": move_L()
+    elif move == "L'": move_L_prime()
+    elif move == "L2":
+        move_L()
+        move_L()
+    elif move == "F": move_F()
+    elif move == "F'": move_F_prime()
+    elif move == "F2":
+        move_F()
+        move_F()
+    elif move == "S": move_S()
+    elif move == "S'": move_S_prime()
+    elif move == "S2":
+        move_S()
+        move_S()
+    elif move == "B": move_B()
+    elif move == "B'": move_B_prime()
+    elif move == "B2":
+        move_B()
+        move_B()
+    elif move == "Uw" or move == "u":
+        move_U()
+        move_E_prime()
+    elif move == "Uw'" or move == "u'":
+        move_U_prime()
+        move_E()
+    elif move == "Dw" or move == "d":
+        move_D()
+        move_E()
+    elif move == "Dw'" or move == "d'":
+        move_D_prime()
+        move_E_prime()
+    elif move == "Lw" or move == "l":
+        move_L()
+        move_M()
+    elif move == "Lw'" or move == "l'":
+        move_L_prime()
+        move_M_prime()
+    elif move == "Rw" or move == "r":
+        move_R()
+        move_M_prime()
+    elif move == "Rw'" or move == "r'":
+        move_R_prime()
+        move_M()
+    elif move == "Fw" or move == "f":
+        move_F()
+        move_S()
+    elif move == "Fw'" or move == "f'":
+        move_F_prime()
+        move_S_prime()
+    elif move == "Bw" or move == "b":
+        move_B()
+        move_S_Prime()
+    elif move == "Bw'" or move == "b'":
+        move_B_prime()
+        move_S()
+    elif move == "x": move_x()
+    elif move == "x'": move_x_prime()
+    elif move == "x2":
+        move_x()
+        move_x()
+    elif move == "y": move_y()
+    elif move == "y'": move_y_prime()
+    elif move == "y2":
+        move_y()
+        move_y()
+    elif move == "z": move_z()
+    elif move == "z'": move_z_prime()
+    elif move == "z2":
+        move_z()
+        move_z()
+    print_cube()
+
+def count():
+    repeats = 0
+    while True:
+        for i in range(1, len(move_list)):
+            move_cube(move_list[i])
+        repeats += 1
+        if cube == cube_solved:
+            break
+    input(f"There had to be {repeats} repeats to return to the original state")
 
 while True:
     print_cube()
     move_list = input("Type in the move: ").split(" ")
-    if move_list[0] == "scramble": scramble_list = scramble()
-    elif move_list[0] == "show_scramble":
+    if move_list[0].lower() == "scramble": scramble_list = scramble()
+    elif move_list[0].lower() == "show_scramble":
         for i in scramble_list:
             print(i, end=' ')
         print()
         input("Press enter to continue: ")
-    elif move_list[0] == "solve": cube = copy.deepcopy(cube_solved)
-    elif move_list[0] == "help": print_help()
-    else: move_cube(move_list)
+    elif move_list[0].lower() == "solve": cube = copy.deepcopy(cube_solved)
+    elif move_list[0].lower() == "help": print_help()
+    elif move_list[0].lower() == "count": count()
+    else:
+        for i in move_list:
+            move_cube(i)
